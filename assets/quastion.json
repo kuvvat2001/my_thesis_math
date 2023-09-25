@@ -1,0 +1,31 @@
+[
+  {
+    "question": "Soru 1: Başkentleri nelerdir?",
+    "choices": [
+      {"text": "A) Ankara", "isCorrect": true},
+      {"text": "B) İstanbul", "isCorrect": false},
+      {"text": "C) Paris", "isCorrect": false},
+      {"text": "D) Java", "isCorrect": false}
+
+    ]
+  },
+  {
+    "question": "Soru 2: Dünya üzerinde kaç kıta bulunmaktadır?",
+    "choices": [
+      {"text": "A) 4", "isCorrect": false},
+      {"text": "B) 5", "isCorrect": true},
+      {"text": "C) 6", "isCorrect": false},
+      {"text": "D) Java", "isCorrect": false}
+
+    ]
+  },
+  {
+    "question": "Решите уравнение: 3x-7=5.",
+    "choices": [
+      {"text": "A) 4", "isCorrect": true},
+      {"text": "B) 3", "isCorrect": false},
+      {"text": "C) 2", "isCorrect": false},
+      {"text": "D) 1", "isCorrect": false}
+    ]
+  }
+]

@@ -1,136 +1,107 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class TestScreen extends StatelessWidget {
+void main() {
+  runApp(TestApp());
+}
+
+class TestApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: TestScreen(),
+    );
+  }
+}
+
+class TestScreen extends StatefulWidget {
+  @override
+  _TestScreenState createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  int currentQuestionIndex = 0;
+  List<Map<String, dynamic>> questions = [];
+  int selectedChoiceIndex = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    loadQuestions();
+  }
+
+  Future<void> loadQuestions() async {
+    final String jsonString = await rootBundle.loadString('assets/quastion.json');
+    final List<dynamic> jsonList = json.decode(jsonString);
+
+    setState(() {
+      questions = jsonList.cast<Map<String, dynamic>>();
+    });
+  }
+
+  void checkAnswer(int choiceIndex) {
+    setState(() {
+      selectedChoiceIndex = choiceIndex;
+    });
+
+    Future.delayed(Duration(seconds: 2), () {
+      if (currentQuestionIndex < questions.length - 1) {
+        setState(() {
+          currentQuestionIndex++;
+          selectedChoiceIndex = -1; // Soruya geçtiğimizde seçili cevabı sıfırla
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: Text('Tests'), // Sayfa başlığı
+        title: Text('Test Uygulaması'),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(5),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TestSection(
+          Expanded(
+            child: Center(
+              child: Text(
+                questions.isEmpty ? 'Sorular yükleniyor...' : questions[currentQuestionIndex]['question'],
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+          ),
+          Column(
+            children: questions.isEmpty
+                ? [Text('Sorular yükleniyor...')]
+                : questions[currentQuestionIndex]['choices'].asMap().entries.map<Widget>((entry) {
+                    int index = entry.key;
+                    Map<String, dynamic> choice = entry.value;
+                    bool isCorrect = choice['isCorrect'];
+                    Color? backgroundColor = (selectedChoiceIndex == index)
+                        ? (isCorrect ? Colors.green : Colors.red)
+                        : null;
 
-            title: 'Multiply in columns',
-            color: Colors.white,
-            subSections: ['yenil', 'orta', 'kyn'],
+                    return GestureDetector(
+                      onTap: () {
+                        if (selectedChoiceIndex == -1) {
+                          checkAnswer(index);
+                        }
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(20.0),
+                        color: backgroundColor,
+                        child: Text(
+                          choice['text'],
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                    );
+                  }).toList(),
           ),
-          TestSection(
-            title: 'Another Test',
-            color: Colors.white,
-            subSections: ['yenil', 'orta', 'kyn'],
-          ),
-          TestSection(
-            title: 'Another Test',
-            color: Colors.white,
-            subSections: ['yenil', 'orta', 'kyn'],
-          ),
-          TestSection(
-            title: 'Another Test',
-            color: Colors.white,
-            subSections: ['yenil', 'orta', 'kyn'],
-          ),
-          // Diğer testleri burada ekleyin
         ],
-      ),
-    );
-  }
-}
-
-class TestSection extends StatelessWidget {
-  final String title;
-  final Color color;
-  final List<String> subSections;
-
-  TestSection({required this.title, required this.color, required this.subSections});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.all(16),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TestDetailScreen(
-                title: title,
-                subSections: subSections,
-              ),
-            ),
-          );
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '$title Test',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Icon(
-              Icons.keyboard_arrow_right,
-              color: Colors.black,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TestDetailScreen extends StatelessWidget {
-  final String title;
-  final List<String> subSections;
-
-  TestDetailScreen({required this.title, required this.subSections});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Bu test hakkında detaylar burada görüntülenir.',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Testi başlatmak veya ilgili işlemi yapmak için buraya kod ekleyebilirsiniz.
-              },
-              child: Text('Testi Başlat'),
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Alt Bölümler:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Column(
-              children: subSections.map((subSection) {
-                return ListTile(
-                  title: Text(subSection),
-                  onTap: () {
-                    // Alt bölüme tıklama işlevi burada eklenir.
-                  },
-                );
-              }).toList(),
-            ),
-          ],
-        ),
       ),
     );
   }
