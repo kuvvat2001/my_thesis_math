@@ -1,26 +1,35 @@
 [
   {
-    "question": "Soru 1: Başkentleri nelerdir?",
+    "question": " Решите неравенство: 2x+3 < 11 ",
     "choices": [
-      {"text": "A) Ankara", "isCorrect": true},
-      {"text": "B) İstanbul", "isCorrect": false},
-      {"text": "C) Paris", "isCorrect": false},
-      {"text": "D) Java", "isCorrect": false}
+      {"text": "A) x<4", "isCorrect": true},
+      {"text": "B) x>3", "isCorrect": false},
+      {"text": "C) x<-3", "isCorrect": false},
+      {"text": "D) x>4", "isCorrect": false}
 
     ]
   },
   {
-    "question": "Soru 2: Dünya üzerinde kaç kıta bulunmaktadır?",
+    "question": " Решите уравнение: 2(x+5)=12.",
     "choices": [
-      {"text": "A) 4", "isCorrect": false},
-      {"text": "B) 5", "isCorrect": true},
-      {"text": "C) 6", "isCorrect": false},
-      {"text": "D) Java", "isCorrect": false}
+      {"text": "A) x=4", "isCorrect": false},
+      {"text": "B) x=1", "isCorrect": true},
+      {"text": "C) x=6", "isCorrect": false},
+      {"text": "D) x=5", "isCorrect": false}
 
     ]
   },
   {
     "question": "Решите уравнение: 3x-7=5.",
+    "choices": [
+      {"text": "A) 4", "isCorrect": true},
+      {"text": "B) 3", "isCorrect": false},
+      {"text": "C) 2", "isCorrect": false},
+      {"text": "D) 1", "isCorrect": false}
+    ]
+  },
+  {
+    "question": "Решите неравенство: (x-1)/3>2. ",
     "choices": [
       {"text": "A) 4", "isCorrect": true},
       {"text": "B) 3", "isCorrect": false},

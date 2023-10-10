@@ -2,18 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
-  runApp(TestApp());
-}
-
-class TestApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TestScreen(),
-    );
-  }
-}
 
 class TestScreen extends StatefulWidget {
   @override
@@ -59,49 +47,53 @@ class _TestScreenState extends State<TestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test Uygulaması'),
+        title: Text('Denlemeler we densizlikler'),
+        backgroundColor: Colors.blue,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Center(
-              child: Text(
-                questions.isEmpty ? 'Sorular yükleniyor...' : questions[currentQuestionIndex]['question'],
-                style: TextStyle(fontSize: 20.0),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 15,right: 15,bottom: 15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  questions.isEmpty ? 'Sorular yükleniyor...' : questions[currentQuestionIndex]['question'],
+                  style: TextStyle(fontSize: 20.0),
+                ),
               ),
             ),
-          ),
-          Column(
-            children: questions.isEmpty
-                ? [Text('Sorular yükleniyor...')]
-                : questions[currentQuestionIndex]['choices'].asMap().entries.map<Widget>((entry) {
-                    int index = entry.key;
-                    Map<String, dynamic> choice = entry.value;
-                    bool isCorrect = choice['isCorrect'];
-                    Color? backgroundColor = (selectedChoiceIndex == index)
-                        ? (isCorrect ? Colors.green : Colors.red)
-                        : null;
-
-                    return GestureDetector(
-                      onTap: () {
-                        if (selectedChoiceIndex == -1) {
-                          checkAnswer(index);
-                        }
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.all(20.0),
-                        color: backgroundColor,
-                        child: Text(
-                          choice['text'],
-                          style: TextStyle(fontSize: 18.0),
+            Column(
+              children: questions.isEmpty
+                  ? [Text('Sorular yükleniyor...')]
+                  : questions[currentQuestionIndex]['choices'].asMap().entries.map<Widget>((entry) {
+                      int index = entry.key;
+                      Map<String, dynamic> choice = entry.value;
+                      bool isCorrect = choice['isCorrect'];
+                      Color? backgroundColor = (selectedChoiceIndex == index)
+                          ? (isCorrect ? Colors.green : Colors.red)
+                          : null;
+      
+                      return GestureDetector(
+                        onTap: () {
+                          if (selectedChoiceIndex == -1) {
+                            checkAnswer(index);
+                          }
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(25.0),
+                          color: backgroundColor,
+                          child: Text(
+                            choice['text'],
+                            style: TextStyle(fontSize: 18.0),
+                          ),
                         ),
-                      ),
-                    );
-                  }).toList(),
-          ),
-        ],
+                      );
+                    }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

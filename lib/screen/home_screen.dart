@@ -3,7 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:math_app/screen/books_scrren.dart';
 import 'package:math_app/screen/results_screen.dart';
 import 'package:math_app/screen/statistic_screen.dart';
-import 'package:math_app/screen/tests_screen.dart';
+import 'package:math_app/screen/tests_ui_screeen.dart';
 import 'package:math_app/screen/theory_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           children: [
             _buildMenuItem(context,"Sapaklar",Icons.book,Colors.greenAccent,TheoryScreen()),
-            _buildMenuItem(context,"Testler",Icons.assignment,Colors.blueAccent,TestScreen()),_buildMenuItem(context,"Satistikalar",Icons.bar_chart,Colors.redAccent,StatisticScreen()),_buildMenuItem(context,"Netijeler",Icons.poll,Colors.amber,ResultsScreen()),
+            _buildMenuItem(context,"Testler",Icons.assignment,Colors.blueAccent,TestsUiScreen()),_buildMenuItem(context,"Satistikalar",Icons.bar_chart,Colors.redAccent,StatisticScreen()),_buildMenuItem(context,"Netijeler",Icons.poll,Colors.amber,ResultsScreen()),
             _buildMenuItem(context,"Kitaplar",Icons.menu_book_rounded,Colors.deepPurple,BooksScreen()),
           ],
         ),
