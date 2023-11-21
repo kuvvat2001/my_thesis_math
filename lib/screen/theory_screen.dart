@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:math_app/screen/multiplaying_screen.dart';
-import 'package:math_app/screen/tests_screen.dart';
+import 'package:math_app/tests/tests_screen.dart';
 
 class TheoryScreen extends StatelessWidget {
   const TheoryScreen({super.key});
