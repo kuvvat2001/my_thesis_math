@@ -34,9 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
             StaggeredTile.extent(2, 150),
           ],
           children: [
-            _buildMenuItem(context,"Sapaklar",Icons.book,Colors.greenAccent,TheoryScreen()),
-            _buildMenuItem(context,"Testler",Icons.assignment,Colors.blueAccent,TestsUiScreen()),_buildMenuItem(context,"Satistikalar",Icons.bar_chart,Colors.redAccent,StatisticScreen()),_buildMenuItem(context,"Netijeler",Icons.poll,Colors.amber,ResultsScreen()),
-            _buildMenuItem(context,"Kitaplar",Icons.menu_book_rounded,Colors.deepPurple,BooksScreen()),
+            _buildMenuItem(context,"Sapaklar",Icons.book,Colors.greenAccent,const TheoryScreen()),
+            _buildMenuItem(context,"Testler",Icons.assignment,Colors.blueAccent,const TestsUiScreen()),_buildMenuItem(context,"Satistikalar",Icons.bar_chart,Colors.redAccent,const StatisticScreen()),_buildMenuItem(context,"Netijeler",Icons.poll,Colors.amber,const ResultsScreen()),
+            _buildMenuItem(context,"Kitaplar",Icons.menu_book_rounded,Colors.deepPurple,const BooksScreen()),
           ],
         ),
         );

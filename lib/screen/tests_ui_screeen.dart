@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:math_app/screen/multiplaying_screen.dart';
-import 'package:math_app/tests/tests_screen.dart';
+import 'package:math_app/tests/equation_tests_screen.dart';
 
 class TestsUiScreen extends StatelessWidget {
   const TestsUiScreen({super.key});
@@ -9,9 +8,9 @@ class TestsUiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(234, 243, 241, 241),
+      backgroundColor: const Color.fromARGB(234, 243, 241, 241),
       appBar: AppBar(
-        title: Text('Testler'),
+        title: const Text('Testler'),
         backgroundColor: Colors.blue,
       ),
       body: StaggeredGridView.countBuilder(
@@ -25,13 +24,15 @@ class TestsUiScreen extends StatelessWidget {
               if (index == 0) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TestScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const EquationTestsScreen()),
                 );
               } else {
                 if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TestScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const EquationTestsScreen()),
                   );
                 }
               }
@@ -47,13 +48,13 @@ class TestsUiScreen extends StatelessWidget {
                   children: [
                     Text(
                       _getThemeTitle(index),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.keyboard_arrow_right,
                       color: Colors.black,
                     ),
@@ -63,7 +64,7 @@ class TestsUiScreen extends StatelessWidget {
             ),
           );
         },
-        staggeredTileBuilder: (int index) => StaggeredTile.extent(1, 50),
+        staggeredTileBuilder: (int index) => const StaggeredTile.extent(1, 50),
         mainAxisSpacing: 2,
         crossAxisSpacing: 10,
         padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
@@ -80,7 +81,7 @@ class TestsUiScreen extends StatelessWidget {
   }
 
   Color _getThemeColor(int index) {
-    List<Color> colors = [Colors.white];
+    List<Color> colors = [Colors.white,Colors.white];
     return colors[index % colors.length];
   }
 

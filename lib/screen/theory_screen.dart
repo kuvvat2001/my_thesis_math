@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:math_app/screen/multiplaying_screen.dart';
-import 'package:math_app/tests/tests_screen.dart';
+import 'package:math_app/tests/equation_tests_screen.dart';
+import 'package:math_app/theories/theories_equation/equation_theoris_screen.dart';
 
 class TheoryScreen extends StatelessWidget {
   const TheoryScreen({super.key});
@@ -9,9 +9,9 @@ class TheoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(234, 243, 241, 241),
+      backgroundColor: const Color.fromARGB(234, 243, 241, 241),
       appBar: AppBar(
-        title: Text('Temalar'),
+        title: const Text('Temalar'),
         backgroundColor: Colors.blue,
       ),
       body: StaggeredGridView.countBuilder(
@@ -25,13 +25,14 @@ class TheoryScreen extends StatelessWidget {
               if (index == 0) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MultiplyingScreen()),
+                  MaterialPageRoute(builder: (context) => const EquationScreen()),
                 );
               } else {
                 if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => TestScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const EquationTestsScreen()),
                   );
                 }
               }
@@ -47,13 +48,13 @@ class TheoryScreen extends StatelessWidget {
                   children: [
                     Text(
                       _getThemeTitle(index),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.keyboard_arrow_right,
                       color: Colors.black,
                     ),
@@ -63,7 +64,7 @@ class TheoryScreen extends StatelessWidget {
             ),
           );
         },
-        staggeredTileBuilder: (int index) => StaggeredTile.extent(1, 50),
+        staggeredTileBuilder: (int index) => const StaggeredTile.extent(1, 50),
         mainAxisSpacing: 2,
         crossAxisSpacing: 10,
         padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 1.0),
@@ -93,7 +94,7 @@ class TheoryScreen extends StatelessWidget {
 
   String _getThemeTitle(int index) {
     if (index == 0) {
-      return '    Köpeltmek';
+      return '    Deňlemeler we deňsizlikler';
     } else if (index == 1) {
       return '    Bölmekkk';
     } else if (index == 2) {

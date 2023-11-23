@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 
-class TestScreen extends StatefulWidget {
+class EquationTestsScreen extends StatefulWidget {
+  const EquationTestsScreen({super.key});
+
   @override
-  _TestScreenState createState() => _TestScreenState();
+  // ignore: library_private_types_in_public_api
+  _EquationTestsScreenState createState() => _EquationTestsScreenState();
 }
 
-class _TestScreenState extends State<TestScreen> {
+class _EquationTestsScreenState extends State<EquationTestsScreen> {
   int currentQuestionIndex = 0;
   List<Map<String, dynamic>> questions = [];
   int selectedChoiceIndex = -1;
@@ -36,7 +39,7 @@ class _TestScreenState extends State<TestScreen> {
       selectedChoiceIndex = choiceIndex;
     });
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       if (currentQuestionIndex < questions.length - 1) {
         setState(() {
           currentQuestionIndex++;
@@ -51,7 +54,7 @@ class _TestScreenState extends State<TestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Denlemeler we densizlikler'),
+        title: const Text('Deňlemeler we deňsizlikler'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
@@ -77,14 +80,17 @@ class _TestScreenState extends State<TestScreen> {
                       questions.isEmpty
                           ? 'Sorular yükleniyor...'
                           : questions[currentQuestionIndex]['question'],
-                      style: TextStyle(fontSize: 20.0),
+                      style: const TextStyle(fontSize: 20.0),
                     ),
                   ),
                 ),
                 Column(
                   children: questions.isEmpty
-                      ? [Text('Sorular yükleniyor...')]
-                      : questions[currentQuestionIndex]['choices'].asMap().entries.map<Widget>((entry) {
+                      ? [const Text('Sorular yükleniyor...')]
+                      : questions[currentQuestionIndex]['choices']
+                          .asMap()
+                          .entries
+                          .map<Widget>((entry) {
                           int index = entry.key;
                           Map<String, dynamic> choice = entry.value;
                           bool isCorrect = choice['isCorrect'];
@@ -92,7 +98,6 @@ class _TestScreenState extends State<TestScreen> {
                               (selectedChoiceIndex == index)
                                   ? (isCorrect ? Colors.green : Colors.red)
                                   : null;
-
                           return GestureDetector(
                             onTap: () {
                               if (selectedChoiceIndex == -1) {
@@ -101,11 +106,11 @@ class _TestScreenState extends State<TestScreen> {
                             },
                             child: Container(
                               width: double.infinity,
-                              padding: EdgeInsets.all(25.0),
+                              padding: const EdgeInsets.all(25.0),
                               color: backgroundColor,
                               child: Text(
                                 choice['text'],
-                                style: TextStyle(fontSize: 18.0),
+                                style: const TextStyle(fontSize: 18.0),
                               ),
                             ),
                           );
