@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:math_app/theories/theories_equation/equatin_topic.dart';
+import 'package:math_app/presentation/theories/theories_equation/equatin_topic.dart';
 
 class EquationScreen extends StatelessWidget {
   const EquationScreen({super.key});
@@ -28,7 +28,8 @@ class EquationScreen extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8 ,vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                   child: MathTopicCard(topic: snapshot.data![index]),
                 );
               },
