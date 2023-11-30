@@ -1,40 +1,139 @@
-[
-  {
-    "question": " Deňsizligi çözüň: 2x+3 < 11 ",
-    "choices": [
-      {"text": "A) x<4", "isCorrect": true},
-      {"text": "B) x>3", "isCorrect": false},
-      {"text": "C) x<-3", "isCorrect": false},
-      {"text": "D) x>4", "isCorrect": false}
-
-    ]
-  },
-  {
-    "question": " Deňlemäni Çözüň: 2(x+5)=12.",
-    "choices": [
-      {"text": "A) x=4", "isCorrect": false},
-      {"text": "B) x=1", "isCorrect": true},
-      {"text": "C) x=6", "isCorrect": false},
-      {"text": "D) x=5", "isCorrect": false}
-
-    ]
-  },
-  {
-    "question": "Deňlemäni Çözüň: 3x-7=5.",
-    "choices": [
-      {"text": "A) 4", "isCorrect": true},
-      {"text": "B) 3", "isCorrect": false},
-      {"text": "C) 2", "isCorrect": false},
-      {"text": "D) 1", "isCorrect": false}
-    ]
-  },
-  {
-    "question": "Deňsizligi çözüň: (x-1)/3>2. ",
-    "choices": [
-      {"text": "A) 4", "isCorrect": true},
-      {"text": "B) 3", "isCorrect": false},
-      {"text": "C) 2", "isCorrect": false},
-      {"text": "D) 1", "isCorrect": false}
-    ]
-  }
-]
+{
+  "data": [
+    {
+      "task": {
+        "title": "Bolmek",
+        "tests": [
+          {
+            "question": " Deňsizligi çözüň: 2x+3 < 11 ",
+            "choices": [
+              {
+                "text": "A) x<4",
+                "isCorrect": true
+              },
+              {
+                "text": "B) x>3",
+                "isCorrect": false
+              },
+              {
+                "text": "C) x<-3",
+                "isCorrect": false
+              },
+              {
+                "text": "D) x>4",
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "question": " Deňlemäni Çözüň: 2(x+5)=12.",
+            "choices": [
+              {
+                "text": "A) x=4",
+                "isCorrect": false
+              },
+              {
+                "text": "B) x=1",
+                "isCorrect": true
+              },
+              {
+                "text": "C) x=6",
+                "isCorrect": false
+              },
+              {
+                "text": "D) x=5",
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "question": "Deňlemäni Çözüň: 3x-7=5.",
+            "choices": [
+              {
+                "text": "A) 4",
+                "isCorrect": true
+              },
+              {
+                "text": "B) 3",
+                "isCorrect": false
+              },
+              {
+                "text": "C) 2",
+                "isCorrect": false
+              },
+              {
+                "text": "D) 1",
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "question": "Deňsizligi çözüň: (x-1)/3>2. ",
+            "choices": [
+              {
+                "text": "A) 4",
+                "isCorrect": true
+              },
+              {
+                "text": "B) 3",
+                "isCorrect": false
+              },
+              {
+                "text": "C) 2",
+                "isCorrect": false
+              },
+              {
+                "text": "D) 1",
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "question": "Deňsizligi çözüň: (x-1)/3>2. ",
+            "choices": [
+              {
+                "text": "A) 4",
+                "isCorrect": false
+              },
+              {
+                "text": "B) 3",
+                "isCorrect": true
+              },
+              {
+                "text": "C) 2",
+                "isCorrect": false
+              },
+              {
+                "text": "D) 1",
+                "isCorrect": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "task": {
+        "title": "Kopeltmek",
+        "tests": [
+          {
+            "question": " Deňsizligi çözüň: 2x+3 < 11 ",
+            "choices": []
+          },
+          {
+            "question": " Deňlemäni Çözüň: 2(x+5)=12.",
+            "choices": []
+          },
+          {
+            "question": "Deňlemäni Çözüň: 3x-7=5.",
+            "choices": []
+          },
+          {
+            "question": "Deňsizligi çözüň: (x-1)/3>2. ",
+            "choices": []
+          }
+        ]
+      }
+    }
+  ]
+}
